@@ -99,7 +99,8 @@
   }
   
   .hero p {
-    max-width: 75%;
+
+    text-align: center;
   }
   
   .app-title {
@@ -107,6 +108,7 @@
     color: white;
     padding: 0;
     display: center;
+    text-align: center;
     
   }
   

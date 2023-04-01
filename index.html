@@ -8,7 +8,12 @@
   <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
   <link rel="stylesheet" href="./assets/css/style.css" />
-  <title>Git it Done</title>
+  <script
+  src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+  integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
+  crossorigin="anonymous"
+></script>
+  <title>Weather Dashboard</title>
 </head>
 
 <body class="flex-column min-100-vh">
@@ -16,8 +21,9 @@
     <h1 class="app-title">
        Weather Dashboard
     </h1>
-    <p>Search for a GitHub user or click on a language to see a list of repositories and how many open issues they have!
-    </p>
+    <p id="currentDay" class="lead">
+        <span id="timeTracker"></span>
+      </p>
   </header>
 
 
@@ -46,8 +52,9 @@
       <div id="repos-container" class="list-group"></div>
     </div>
   </main>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
-  <script src="./assets/js/homepage.js"></script>
+  <script src="./assets/js/script.js"></script>
 </body>
 
 </html>

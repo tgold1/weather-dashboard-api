@@ -3,3 +3,12 @@ var city;
 https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}
 var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
 fetch(queryURL)
+
+var timer = document.getElementById("timeTracker");
+$("#currentDay").html(timer);
+function displayTime () {
+    var now = dayjs().format('MMMM, D, YYYY HH:mm:ss');
+    timer.textContent = now;
+  }
+  displayTime ();
+  setInterval(displayTime, 1000);
