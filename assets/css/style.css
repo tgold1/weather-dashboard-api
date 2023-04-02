@@ -99,7 +99,7 @@
   }
   
   .hero p {
-
+    margin-top: 0;
     text-align: center;
   }
   
@@ -110,6 +110,12 @@
     display: center;
     text-align: center;
     
+  }
+
+  #current-city {
+    font-size: small;
+    background-color: white;
+    color: black;
   }
   
   .list-group {
