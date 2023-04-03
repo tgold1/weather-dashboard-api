@@ -18,6 +18,16 @@ var Humidity = document.querySelector("#Humidity") ;
   Temperature.textContent="Temperature: " + data.list[0].main.temp + " degrees";
   Windspeed.textContent="Windspeed: " + data.list[0].wind.speed + " mph";
   Humidity.textContent="Humidity: " + data.list[0].main.humidity + "%";
+  var Boxone = document.querySelector("#boxone");
+  Boxone.innerHTML="Temperature: " + data.list[1].main.temp + " degrees<br/>Windspeed: " + data.list[1].wind.speed + " mph<br/>Humidity: " + data.list[1].main.humidity + "%";
+  var Boxtwo = document.querySelector("#boxtwo");
+  Boxtwo.innerHTML="Temperature: " + data.list[2].main.temp + " degrees<br/>Windspeed: " + data.list[2].wind.speed + " mph<br/>Humidity: " + data.list[2].main.humidity + "%";
+  var Boxthree = document.querySelector("#boxthree");
+  Boxthree.innerHTML="Temperature: " + data.list[3].main.temp + " degrees<br/>Windspeed: " + data.list[3].wind.speed + " mph<br/>Humidity: " + data.list[3].main.humidity + "%";
+  var Boxfour = document.querySelector("#boxfour");
+  Boxfour.innerHTML="Temperature: " + data.list[4].main.temp + " degrees<br/>Windspeed: " + data.list[4].wind.speed + " mph<br/>Humidity: " + data.list[4].main.humidity + "%";
+  var Boxfive = document.querySelector("#boxfive");
+  Boxfive.innerHTML="Temperature: " + data.list[5].main.temp + " degrees<br/>Windspeed: " + data.list[5].wind.speed + " mph<br/>Humidity: " + data.list[5].main.humidity + "%";
 }
 function getAPI(queryURL) {
 fetch(queryURL)

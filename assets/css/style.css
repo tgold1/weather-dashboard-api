@@ -112,10 +112,20 @@
     
   }
 
-  #cityLocation {
-    font-size: small;
+  #currentdate {
     background-color: white;
     color: black;
+    border: 2px solid black;
+    padding: 20px;
+    margin: 15px;
+  }
+
+  .box {
+    display: inline-block;
+    background-color:darkblue;
+    color: white;
+    padding: 20px;
+    margin: 5px;
   }
   
   .list-group {
