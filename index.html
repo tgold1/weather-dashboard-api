@@ -23,7 +23,7 @@
 
 
   <main class="flex-row justify-space-between">
-    <div class="col-12 col-md-4 col-lg-4">
+    <div id="cities">
         <h3 class="card-header text-uppercase">Search for a City:</h3>
       <div class="card">
         
@@ -45,19 +45,19 @@
           <button class="btn" onclick="getAPI('St. Louis');">St. Louis</button>
           <button class="btn" onclick="getAPI('Denver');">Denver</button>
           <button class="btn" onclick="getAPI('Seattle');">Seattle</button>
-          
+
 
         </div>
       </div>
     </div>
-
-    <div class="col-lg-8" id="currentdate">
+    <div id="weather">
+    <div id="currentdate">
         <h2 id="cityLocation" class="list-group"></h2>
         <div id="Temperature" class="list-group">Temperature: </div>
         <div id="Windspeed" class="list-group">Windspeed: </div>
         <div id="Humidity"  class="list-group">Humidity: </div>
     </div>
-    <div class=" col-lg-8">
+    <div style="margin-left: 10px;">
       <h3 class="subtitle">5-Day Forecast: <span id="city-search-term"></span></h2>
       <div id="repos-container" class="list-group">
         <div class="box" id="boxone">Day One</div>
@@ -66,6 +66,7 @@
         <div class="box" id="boxfour">Day Four</div>
         <div class="box" id="boxfive">Day Five</div>
       </div>
+    </div>
     </div>
   </main>
   <script
