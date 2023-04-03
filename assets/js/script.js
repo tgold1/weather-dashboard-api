@@ -1,7 +1,7 @@
 var APIKey = "1a6e242c584145cebf5c8827e5e6e268";
 var latitude = "39.9551221447199";
 var longitude = "-75.16952831929365";
-var queryURL = "https://api.openweathermap.org/data/2.5/forecast?lat=39.9551221447199&lon=-75.16952831929365&appid=1a6e242c584145cebf5c8827e5e6e268&units=imperial";
+var searchURL = "https://api.openweathermap.org/data/2.5/forecast?lat=39.9551221447199&lon=-75.16952831929365&appid=1a6e242c584145cebf5c8827e5e6e268&units=imperial";
 var cityLocation; 
 var searchCity = JSON.parse(localStorage.getItem("cityView"));
 console.log(searchCity)
@@ -14,10 +14,10 @@ var Temperature = document.querySelector("#Temperature");
 var Windspeed = document.querySelector("#Windspeed");
 var Humidity = document.querySelector("#Humidity") ; 
   console.log(data);
-  cityLocation.textContent= data.city.Location;
-  Temperature.textContent="Temperature:" + data.list[0].main.Temperature + "degrees";
-  Windspeed.textContent="Windspeed:" + data.list[0].Windspeed + "mph";
-  Humidity.textContent="Humidity:" + data.list[0].main.Humidity + "%";
+  cityLocation.textContent= data.city.name;
+  Temperature.textContent="Temperature: " + data.list[0].main.temp + " degrees";
+  Windspeed.textContent="Windspeed: " + data.list[0].wind.speed + " mph";
+  Humidity.textContent="Humidity: " + data.list[0].main.humidity + "%";
 }
 function getAPI(queryURL) {
 fetch(queryURL)
@@ -26,7 +26,7 @@ fetch(queryURL)
     })
     .then(function (data) {
       getWeather(data);
-      localStorage.setItem("cityView",JSON.stringify(data));
+      localStorage.setItem("cityView", JSON.stringify(data));
      
     });
     Searchbutton.addEventListener('click' , function (event) {
@@ -37,7 +37,7 @@ fetch(queryURL)
    
     
     
-    getAPI(queryURL);  
+     
   }
 
  
@@ -57,3 +57,5 @@ function displayTime () {
 }
 displayTime ();
 setInterval(displayTime, 1000);
+
+getAPI(searchURL); 
