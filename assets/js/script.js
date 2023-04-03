@@ -1,5 +1,10 @@
 var APIKey = "1a6e242c584145cebf5c8827e5e6e268";
+if(localStorage.getItem("city")) {
 var searchCity = localStorage.getItem("city");
+}
+else {
+  var searchCity = "Philadelphia";
+}
 var searchButton = document.querySelector("#user-form");
 var forecastView = document.querySelector("#forecast");
 function getWeather(data) {
@@ -41,6 +46,11 @@ fetch(queryURL)
     })
     .then(function (data) {
       getWeather(data);
+      var button = document.createElement("button");
+      button.className = "btn";
+      button.textContent = city;
+      button.onclick = function() {getAPI(city)};
+      document.getElementById("city-buttons").appendChild(button);
       localStorage.setItem("city", city);
      
     });
