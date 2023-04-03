@@ -1,18 +1,23 @@
 var APIKey = "1a6e242c584145cebf5c8827e5e6e268";
 var latitude = "39.9551221447199";
 var longitude = "-75.16952831929365";
-var queryURL = "https://api.openweathermap.org/data/2.5/forecast?lat=39.9551221447199&lon=-75.16952831929365&appid=1a6e242c584145cebf5c8827e5e6e268";
- 
+var queryURL = "https://api.openweathermap.org/data/2.5/forecast?lat=39.9551221447199&lon=-75.16952831929365&appid=1a6e242c584145cebf5c8827e5e6e268&units=imperial";
+var cityLocation; 
+var searchCity = JSON.parse(localStorage.getItem("cityView"));
+console.log(searchCity)
+
+var Searchbutton = document.querySelector(".Search");
+var forecastView = document.querySelector(".forecastView");
 function getWeather(data) {
-var cityLoc =document.querySelector("#cityLoc");
+var cityLocation = document.querySelector("#cityLocation");
 var Temperature = document.querySelector("#Temperature");
 var Windspeed = document.querySelector("#Windspeed");
 var Humidity = document.querySelector("#Humidity") ; 
-  console.log(data)
-  cityLoc.textContent=data.city.Loc
-  Temperature.textContent="Temperature:" + data.list[0].main.Temperature + "degrees"
-  Windspeed.textContent="Windspeed:" + data.list[0].Wind.speed + "mph"
-  Humidity.textContent="Humidity:" + data.list[0].main.Humidity + "%"
+  console.log(data);
+  cityLocation.textContent= data.city.Location;
+  Temperature.textContent="Temperature:" + data.list[0].main.Temperature + "degrees";
+  Windspeed.textContent="Windspeed:" + data.list[0].Windspeed + "mph";
+  Humidity.textContent="Humidity:" + data.list[0].main.Humidity + "%";
 }
 function getAPI(queryURL) {
 fetch(queryURL)
@@ -20,16 +25,22 @@ fetch(queryURL)
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
+      getWeather(data);
+      localStorage.setItem("cityView",JSON.stringify(data));
+     
     });
-    $("#Temperature").html(Temperature);
-    $("#Windspeed").html(Windspeed);
-    $("#Humidity").html(Humidity);
-
+    Searchbutton.addEventListener('click' , function (event) {
+      console.log(forecastView.value)
+      getAPI(forecastView.value)
     
+    })
+   
+    
+    
+    getAPI(queryURL);  
   }
 
-  getAPI(queryURL); 
+ 
  
 //document.getElementById("latitude").value =
  // position.coords.latitude.toFixed(2);
